@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Vazirmatn:wght@400;600&display=swap");
+
+:root {
+  --ink: #1f3a5a;
+  --ink-soft: #4d6a8c;
+  --glass: rgba(255, 255, 255, 0.42);
+  --glass-strong: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 8px 28px rgba(31, 58, 90, 0.12);
+  --field: rgba(255, 255, 255, 0.55);
+  --done-glass: rgba(170, 235, 185, 0.5);
+  --done-ink: #1f6a36;
+  --danger: #a8403a;
+  --blur: blur(16px) saturate(160%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e4edf8;
+    --ink-soft: #a7bad3;
+    --glass: rgba(30, 42, 64, 0.5);
+    --glass-strong: rgba(40, 55, 82, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    --field: rgba(15, 24, 40, 0.55);
+    --done-glass: rgba(40, 110, 70, 0.45);
+    --done-ink: #a6ebb9;
+    --danger: #f2a8a1;
+  }
+}
+
+/* Where backdrop-filter is not supported, use more solid panels */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    --glass: rgba(255, 255, 255, 0.85);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --glass: rgba(30, 42, 64, 0.92);
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  /* Latin letters use Comic Neue, Persian letters fall back to Vazirmatn */
+  font-family: "Comic Neue", "Vazirmatn", cursive;
+  font-weight: 600;
+}
+
+body {
+  color: var(--ink);
+  min-height: 100vh;
+  /* soft colour blobs - the glass panels blur these */
+  background-color: #f1f5fa;
+  background-image:
+    radial-gradient(circle at 12% 18%, #ffe7a3 0, transparent 38%),
+    radial-gradient(circle at 88% 12%, #a9dcff 0, transparent 42%),
+    radial-gradient(circle at 78% 88%, #bdeed0 0, transparent 42%),
+    radial-gradient(circle at 8% 92%, #ffd0c4 0, transparent 38%);
+  background-attachment: fixed;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0f1724;
+    background-image:
+      radial-gradient(circle at 12% 18%, #5a4a1c 0, transparent 38%),
+      radial-gradient(circle at 88% 12%, #1c4a6e 0, transparent 42%),
+      radial-gradient(circle at 78% 88%, #1c5a40 0, transparent 42%),
+      radial-gradient(circle at 8% 92%, #5a2f28 0, transparent 38%);
+  }
+}
+
+#root {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink-soft);
+  outline-offset: 2px;
+}

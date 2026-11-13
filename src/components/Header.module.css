@@ -1,0 +1,23 @@
+.header {
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  padding: 14px 22px;
+  border-radius: 22px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  color: var(--ink);
+}
+
+.progress {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}

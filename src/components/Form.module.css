@@ -1,0 +1,83 @@
+.addPlan {
+  padding: 18px 22px;
+  border-radius: 22px;
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.addPlan h2 {
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 14px;
+  align-items: end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  color: var(--ink);
+}
+
+.field input {
+  height: 44px;
+  width: 100%;
+  border-radius: 14px;
+  background: var(--field);
+  color: var(--ink);
+  border: 1px solid var(--glass-border);
+  font-size: 1rem;
+  padding: 8px 12px;
+}
+
+.field input::placeholder {
+  color: var(--ink-soft);
+}
+
+.form button {
+  height: 44px;
+  padding: 0 28px;
+  font-size: 1.05rem;
+  background: var(--ink);
+  color: var(--glass-strong);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(31, 58, 90, 0.25);
+}
+
+.form button:hover {
+  filter: brightness(1.15);
+}
+
+.error {
+  margin-top: 12px;
+  color: var(--danger);
+}
+
+@media (max-width: 720px) {
+  .form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .field:first-child {
+    grid-column: 1 / -1;
+  }
+  .form button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 380px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
